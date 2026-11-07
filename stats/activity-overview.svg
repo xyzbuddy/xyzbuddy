@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="990" height="320" viewBox="0 0 990 320" role="img" aria-label="Activity overview for the last 12 months: Code review 0%, Issues 2%, Pull requests 0%, Commits 98%; contributed to 5 repositories">
 <title>Activity overview for the last 12 months: Code review 0%, Issues 2%, Pull requests 0%, Commits 98%; contributed to 5 repositories</title>
-<rect x="0.5" y="0.5" width="989" height="319" rx="10" fill="#0D1117" stroke="#1F2A44"/>
-<rect x="25" y="22" width="4" height="18" rx="2" fill="#2563EB"/>
-<text x="37" y="37" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="600" fill="#60A5FA">Activity Overview</text>
+<rect x="0.5" y="0.5" width="989" height="319" rx="10" fill="#0D1117" stroke="#30363D"/>
+<rect x="25" y="22" width="4" height="18" rx="2" fill="#2EA043"/>
+<text x="37" y="37" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="600" fill="#E6EDF3">Activity Overview</text>
 <text x="965" y="37" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">Last 12 months</text>
-<line x1="500" y1="65" x2="500" y2="295" stroke="#1F2A44"/>
+<line x1="500" y1="65" x2="500" y2="295" stroke="#30363D"/>
 <text x="37" y="92" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#E6EDF3" text-anchor="start">Contributed to</text>
-<circle cx="42" cy="120" r="3" fill="#2563EB"/>
-<text x="54" y="125" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#60A5FA" text-anchor="start">xyzbuddy/Seba-video-downloader</text>
-<circle cx="42" cy="150" r="3" fill="#2563EB"/>
-<text x="54" y="155" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#60A5FA" text-anchor="start">xyzbuddy/telegram-video-downloader</text>
-<circle cx="42" cy="180" r="3" fill="#2563EB"/>
-<text x="54" y="185" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#60A5FA" text-anchor="start">xyzbuddy/xyzbuddy</text>
+<circle cx="42" cy="120" r="3" fill="#2EA043"/>
+<text x="54" y="125" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#58A6FF" text-anchor="start">xyzbuddy/Seba-video-downloader</text>
+<circle cx="42" cy="150" r="3" fill="#2EA043"/>
+<text x="54" y="155" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#58A6FF" text-anchor="start">xyzbuddy/telegram-video-downloader</text>
+<circle cx="42" cy="180" r="3" fill="#2EA043"/>
+<text x="54" y="185" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#58A6FF" text-anchor="start">xyzbuddy/xyzbuddy</text>
 <text x="37" y="221" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="start">and 2 other repositories</text>
-<line x1="655" y1="175" x2="835" y2="175" stroke="#2B3A5C" stroke-width="3" stroke-linecap="round"/>
-<line x1="745" y1="85" x2="745" y2="265" stroke="#2B3A5C" stroke-width="3" stroke-linecap="round"/>
-<polygon points="745.0,175.0 749.0,175.0 745.0,175.0 657.0,175.0" fill="#2563EB" fill-opacity="0.3" stroke="#2563EB" stroke-width="4" stroke-linejoin="round"/>
-<circle cx="749.0" cy="175.0" r="5" fill="#0D1117" stroke="#60A5FA" stroke-width="2.5"/>
-<circle cx="657.0" cy="175.0" r="5" fill="#0D1117" stroke="#60A5FA" stroke-width="2.5"/>
+<line x1="655" y1="175" x2="835" y2="175" stroke="#2EA043" stroke-width="3" stroke-linecap="round"/>
+<line x1="745" y1="85" x2="745" y2="265" stroke="#2EA043" stroke-width="3" stroke-linecap="round"/>
+<polygon points="745.0,175.0 749.0,175.0 745.0,175.0 656.9,175.0" fill="#2EA043" fill-opacity="0.3" stroke="#2EA043" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="749.0" cy="175.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
+<circle cx="656.9" cy="175.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
 <text x="745" y="73" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="middle">Code review</text>
 <text x="851" y="171" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="start">2%</text>
 <text x="851" y="189" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="start">Issues</text>

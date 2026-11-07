@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="495" height="210" viewBox="0 0 495 210" role="img" aria-label="Most used languages: TypeScript 75.1%, Java 10.0%, Python 9.4%, CSS 2.0%, JavaScript 1.5%, C 1.3%, HTML 0.7%, Batchfile 0.0%">
-<title>Most used languages: TypeScript 75.1%, Java 10.0%, Python 9.4%, CSS 2.0%, JavaScript 1.5%, C 1.3%, HTML 0.7%, Batchfile 0.0%</title>
-<rect x="0.5" y="0.5" width="494" height="209" rx="10" fill="#0D1117" stroke="#1F2A44"/>
-<rect x="25" y="22" width="4" height="18" rx="2" fill="#2563EB"/>
-<text x="37" y="37" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="600" fill="#60A5FA">Most Used Languages</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="210" viewBox="0 0 495 210" role="img" aria-label="Most used languages: TypeScript 75.0%, Java 10.0%, Python 9.6%, CSS 2.0%, JavaScript 1.5%, C 1.3%, HTML 0.7%, Batchfile 0.0%">
+<title>Most used languages: TypeScript 75.0%, Java 10.0%, Python 9.6%, CSS 2.0%, JavaScript 1.5%, C 1.3%, HTML 0.7%, Batchfile 0.0%</title>
+<rect x="0.5" y="0.5" width="494" height="209" rx="10" fill="#0D1117" stroke="#30363D"/>
+<rect x="25" y="22" width="4" height="18" rx="2" fill="#2EA043"/>
+<text x="37" y="37" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="600" fill="#E6EDF3">Most Used Languages</text>
 <clipPath id="bar"><rect x="25" y="58" width="445.0" height="10" rx="5"/></clipPath>
-<rect x="25" y="58" width="445.0" height="10" rx="5" fill="#1B2333"/>
-<g clip-path="url(#bar)"><rect x="25.00" y="58" width="334.38" height="10" fill="#3178c6"/><rect x="359.38" y="58" width="44.47" height="10" fill="#b07219"/><rect x="403.85" y="58" width="41.73" height="10" fill="#3572A5"/><rect x="445.58" y="58" width="8.71" height="10" fill="#663399"/><rect x="454.29" y="58" width="6.77" height="10" fill="#f1e05a"/><rect x="461.06" y="58" width="5.83" height="10" fill="#555555"/><rect x="466.90" y="58" width="2.96" height="10" fill="#e34c26"/><rect x="469.85" y="58" width="0.10" height="10" fill="#C1F12E"/></g>
+<rect x="25" y="58" width="445.0" height="10" rx="5" fill="#21262D"/>
+<g clip-path="url(#bar)"><rect x="25.00" y="58" width="333.56" height="10" fill="#3178c6"/><rect x="358.56" y="58" width="44.36" height="10" fill="#b07219"/><rect x="402.92" y="58" width="42.72" height="10" fill="#3572A5"/><rect x="445.64" y="58" width="8.69" height="10" fill="#663399"/><rect x="454.33" y="58" width="6.76" height="10" fill="#f1e05a"/><rect x="461.08" y="58" width="5.82" height="10" fill="#555555"/><rect x="466.91" y="58" width="2.95" height="10" fill="#e34c26"/><rect x="469.85" y="58" width="0.10" height="10" fill="#C1F12E"/></g>
 <circle cx="30" cy="94" r="5" fill="#3178c6"/>
 <text x="42" y="98" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#E6EDF3" text-anchor="start">TypeScript</text>
-<text x="230" y="98" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">75.1%</text>
+<text x="230" y="98" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">75.0%</text>
 <circle cx="260" cy="94" r="5" fill="#b07219"/>
 <text x="272" y="98" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#E6EDF3" text-anchor="start">Java</text>
 <text x="460" y="98" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">10.0%</text>
 <circle cx="30" cy="120" r="5" fill="#3572A5"/>
 <text x="42" y="124" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#E6EDF3" text-anchor="start">Python</text>
-<text x="230" y="124" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">9.4%</text>
+<text x="230" y="124" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">9.6%</text>
 <circle cx="260" cy="120" r="5" fill="#663399"/>
 <text x="272" y="124" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#E6EDF3" text-anchor="start">CSS</text>
 <text x="460" y="124" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">2.0%</text>
@@ -29,5 +29,5 @@
 <text x="230" y="176" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">0.7%</text>
 <circle cx="260" cy="172" r="5" fill="#C1F12E"/>
 <text x="272" y="176" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#E6EDF3" text-anchor="start">Batchfile</text>
-<text x="460" y="176" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">0.0%</text>
+<text x="460" y="176" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="end">&lt;0.1%</text>
 </svg>
