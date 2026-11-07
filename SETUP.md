@@ -47,6 +47,11 @@ With the built-in token the cards use **public** data only. To also count privat
 
 Private contributions only add to the counts (streak, activity overview, commits). Stars, repositories and languages are always computed from your **public, non-fork** repositories.
 
+## Change the card colors
+
+Edit `STATS_THEME` in `.github/workflows/update-stats.yml` and run the workflow. Available themes:
+`midnight-blue`, `github-dark` (current), `tokyo-night`, `dracula`, `catppuccin`, `nord`, `sunset`.
+
 ## How it works and limitations
 
 - `scripts/generate_stats.py` (Python standard library only) reads the GitHub GraphQL API and writes static SVGs. No third-party stats service is involved, so there are no shared rate limits or outages to worry about.

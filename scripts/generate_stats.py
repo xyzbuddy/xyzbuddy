@@ -37,13 +37,33 @@ from xml.sax.saxutils import escape
 API = "https://api.github.com/graphql"
 
 # ---- Theme -----------------------------------------------------------------
-BG = "#0D1117"
-BORDER = "#1F2A44"
-ACCENT = "#2563EB"
-ACCENT_LIGHT = "#60A5FA"
-TEXT = "#E6EDF3"
-MUTED = "#8B949E"
-GRID = "#1B2333"
+THEMES = {
+    # name: background, border, accent (rings/bars/lines), highlight (labels/points),
+    #       title, text, muted text, track (empty bar/ring), chart axis
+    "midnight-blue": dict(BG="#0D1117", BORDER="#1F2A44", ACCENT="#2563EB", ACCENT_LIGHT="#60A5FA",
+                          TITLE="#60A5FA", TEXT="#E6EDF3", MUTED="#8B949E", GRID="#1B2333", AXIS="#2B3A5C"),
+    "github-dark": dict(BG="#0D1117", BORDER="#30363D", ACCENT="#2EA043", ACCENT_LIGHT="#58A6FF",
+                        TITLE="#E6EDF3", TEXT="#E6EDF3", MUTED="#8B949E", GRID="#21262D", AXIS="#2EA043"),
+    "tokyo-night": dict(BG="#1A1B27", BORDER="#2A2E45", ACCENT="#7AA2F7", ACCENT_LIGHT="#BB9AF7",
+                        TITLE="#7AA2F7", TEXT="#C0CAF5", MUTED="#7982A9", GRID="#24283B", AXIS="#3B4261"),
+    "dracula": dict(BG="#282A36", BORDER="#44475A", ACCENT="#FF79C6", ACCENT_LIGHT="#8BE9FD",
+                    TITLE="#FF79C6", TEXT="#F8F8F2", MUTED="#A4AEDB", GRID="#343746", AXIS="#6272A4"),
+    "catppuccin": dict(BG="#1E1E2E", BORDER="#313244", ACCENT="#CBA6F7", ACCENT_LIGHT="#89B4FA",
+                       TITLE="#CBA6F7", TEXT="#CDD6F4", MUTED="#A6ADC8", GRID="#313244", AXIS="#45475A"),
+    "nord": dict(BG="#2E3440", BORDER="#3B4252", ACCENT="#88C0D0", ACCENT_LIGHT="#81A1C1",
+                 TITLE="#88C0D0", TEXT="#ECEFF4", MUTED="#A3ABB9", GRID="#3B4252", AXIS="#4C566A"),
+    "sunset": dict(BG="#16161E", BORDER="#2D2A3A", ACCENT="#F97316", ACCENT_LIGHT="#FBBF24",
+                   TITLE="#FB923C", TEXT="#F4F4F5", MUTED="#A1A1AA", GRID="#27272F", AXIS="#3F3F4A"),
+}
+
+
+def apply_theme(name: str) -> None:
+    if name not in THEMES:
+        raise SystemExit(f"Unknown theme '{name}'. Choose one of: {', '.join(THEMES)}")
+    globals().update(THEMES[name])
+
+
+apply_theme("midnight-blue")
 FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif"
 
 
@@ -189,7 +209,7 @@ def fetch(token: str, login: str) -> dict:
             repo_totals[name] = repo_totals.get(name, 0) + item["contributions"]["totalCount"]
     return {
         "login": first["login"],
-        "name": first["name"] or first["login"],
+        "name": (first["name"] or "").strip() or first["login"],
         "stars": stars,
         "commits": commits,
         "prs": first["pullRequests"]["totalCount"],
@@ -284,12 +304,13 @@ def card(width: int, height: int, title: str, body: str, label: str) -> str:
         f'fill="{BG}" stroke="{BORDER}"/>\n'
         f'<rect x="25" y="22" width="4" height="18" rx="2" fill="{ACCENT}"/>\n'
         f'<text x="37" y="37" font-family="{FONT}" font-size="17" font-weight="600" '
-        f'fill="{ACCENT_LIGHT}">{escape(title)}</text>\n'
+        f'fill="{TITLE}">{escape(title)}</text>\n'
         f"{body}\n</svg>\n"
     )
 
 
-def t(x, y, s, size=13, fill=TEXT, weight=400, anchor="start") -> str:
+def t(x, y, s, size=13, fill=None, weight=400, anchor="start") -> str:
+    fill = fill or TEXT
     return (
         f'<text x="{x}" y="{y}" font-family="{FONT}" font-size="{size}" '
         f'font-weight="{weight}" fill="{fill}" text-anchor="{anchor}">{escape(str(s))}</text>'
@@ -393,7 +414,7 @@ def languages_svg(data: dict) -> str:
             pct = 100 * v["size"] / total
             parts.append(f'<circle cx="{x0 + 5}" cy="{y0 - 4}" r="5" fill="{v["color"]}"/>')
             parts.append(t(x0 + 17, y0, name, 13, TEXT))
-            parts.append(t(x0 + 205, y0, f"{pct:.1f}%", 12, MUTED, 400, "end"))
+            parts.append(t(x0 + 205, y0, f"{pct:.1f}%" if pct >= 0.1 else "<0.1%", 12, MUTED, 400, "end"))
     summary = ", ".join(f"{n} {100 * v['size'] / total:.1f}%" for n, v in top) or "none"
     return card(495, 210, "Most Used Languages", "\n".join(parts),
                 f"Most used languages: {summary}")
@@ -467,7 +488,7 @@ def activity_overview_svg(data: dict) -> str:
         "prs": (0, 1, "Pull requests"),
         "commits": (-1, 0, "Commits"),
     }
-    axis = "#2B3A5C"
+    axis = AXIS
     parts.append(f'<line x1="{cx - r}" y1="{cy}" x2="{cx + r}" y2="{cy}" stroke="{axis}" stroke-width="3" stroke-linecap="round"/>')
     parts.append(f'<line x1="{cx}" y1="{cy - r}" x2="{cx}" y2="{cy + r}" stroke="{axis}" stroke-width="3" stroke-linecap="round"/>')
     pts = []
@@ -526,7 +547,10 @@ def main() -> int:
     mode = ap.add_mutually_exclusive_group()
     mode.add_argument("--placeholder", action="store_true")
     mode.add_argument("--demo", action="store_true")
+    ap.add_argument("--theme", default=os.environ.get("STATS_THEME") or "midnight-blue",
+                    help="color theme: " + ", ".join(THEMES))
     args = ap.parse_args()
+    apply_theme(args.theme)
     os.makedirs(args.out, exist_ok=True)
 
     if args.placeholder:

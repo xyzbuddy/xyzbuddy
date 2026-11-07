@@ -26,6 +26,9 @@ jobs:
           # contribution counts; without it the built-in token reads public data.
           GH_TOKEN: ${{ secrets.STATS_TOKEN || github.token }}
           GH_USER: ${{ github.repository_owner }}
+          # Card colors. Options: midnight-blue, github-dark, tokyo-night, dracula,
+          # catppuccin, nord, sunset
+          STATS_THEME: github-dark
         run: python3 scripts/generate_stats.py --out stats
 
       - name: Commit changes (only if the cards changed)
