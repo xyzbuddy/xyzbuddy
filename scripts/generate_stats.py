@@ -7,8 +7,8 @@ Outputs (in --out, default "stats/"):
   overview.svg   - stars, commits, PRs, issues, repos, contributions
   languages.svg  - most used languages (public, non-fork repos you own)
   streak.svg     - total contributions, current streak, longest streak
-  activity.svg   - daily contributions over the last 31 days (line graph)
-  calendar.svg   - contribution heatmap for the last year
+  activity-overview.svg - share of commits / issues / PRs / reviews over the
+                   last 12 months and the repositories contributed to
 
 Environment:
   GH_TOKEN  token used for the API (GITHUB_TOKEN in Actions is enough for
@@ -44,7 +44,6 @@ ACCENT_LIGHT = "#60A5FA"
 TEXT = "#E6EDF3"
 MUTED = "#8B949E"
 GRID = "#1B2333"
-HEAT = ["#161B22", "#0C2D6B", "#1E40AF", "#2563EB", "#60A5FA"]
 FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif"
 
 
@@ -84,6 +83,22 @@ query($login: String!, $cursor: String) {
     issues { totalCount }
     contributionsCollection {
       contributionYears
+      totalCommitContributions
+      totalIssueContributions
+      totalPullRequestContributions
+      totalPullRequestReviewContributions
+      commitContributionsByRepository(maxRepositories: 100) {
+        repository { nameWithOwner } contributions { totalCount }
+      }
+      issueContributionsByRepository(maxRepositories: 100) {
+        repository { nameWithOwner } contributions { totalCount }
+      }
+      pullRequestContributionsByRepository(maxRepositories: 100) {
+        repository { nameWithOwner } contributions { totalCount }
+      }
+      pullRequestReviewContributionsByRepository(maxRepositories: 100) {
+        repository { nameWithOwner } contributions { totalCount }
+      }
       contributionCalendar {
         totalContributions
         weeks { contributionDays { date contributionCount } }
@@ -158,8 +173,20 @@ def fetch(token: str, login: str) -> dict:
         for week in coll["contributionCalendar"]["weeks"]:
             for day in week["contributionDays"]:
                 days[day["date"]] = day["contributionCount"]
+    # The yearly calendar runs to Dec 31; drop days that haven't happened yet,
+    # otherwise empty future days would break the current streak.
+    today = dt.datetime.now(dt.timezone.utc).date().isoformat()
+    days = {d: c for d, c in days.items() if d <= today}
 
-    cal = first["contributionsCollection"]["contributionCalendar"]
+    cc = first["contributionsCollection"]
+    cal = cc["contributionCalendar"]
+    repo_totals: dict[str, int] = {}
+    for key in ("commitContributionsByRepository", "issueContributionsByRepository",
+                "pullRequestContributionsByRepository",
+                "pullRequestReviewContributionsByRepository"):
+        for item in cc[key]:
+            name = item["repository"]["nameWithOwner"]
+            repo_totals[name] = repo_totals.get(name, 0) + item["contributions"]["totalCount"]
     return {
         "login": first["login"],
         "name": first["name"] or first["login"],
@@ -175,6 +202,13 @@ def fetch(token: str, login: str) -> dict:
         ],
         "days": days,
         "languages": langs,
+        "activity": {
+            "commits": cc["totalCommitContributions"],
+            "issues": cc["totalIssueContributions"],
+            "prs": cc["totalPullRequestContributions"],
+            "reviews": cc["totalPullRequestReviewContributions"],
+        },
+        "contributed_repos": sorted(repo_totals, key=lambda n: (-repo_totals[n], n.lower())),
     }
 
 
@@ -220,6 +254,10 @@ def demo_data() -> dict:
             "Kotlin": {"size": 20000, "color": "#A97BFF"},
             "C": {"size": 9000, "color": "#555555"},
         },
+        "activity": {"commits": 98, "issues": 0, "prs": 2, "reviews": 0},
+        "contributed_repos": ["demo-user/portfolio-site",
+                              "demo-org/team-project", "demo-user/library-system"]
+                             + [f"demo/repo-{i}" for i in range(11)],
     }
 
 
@@ -398,81 +436,71 @@ def streak_svg(data: dict) -> str:
                 f"longest streak {s['best']} days")
 
 
-def activity_svg(data: dict) -> str:
-    days = data["days"]
-    last = max(days) if days else dt.date.today().isoformat()
-    end = dt.date.fromisoformat(last)
-    series = [((end - dt.timedelta(days=30 - i)).isoformat()) for i in range(31)]
-    vals = [days.get(d, 0) for d in series]
+def activity_overview_svg(data: dict) -> str:
     w, h = 990, 320
-    left, right, top, bottom = 60, 960, 70, 270
-    vmax = max(max(vals), 4)
-    step = max(1, -(-vmax // 4))  # ceil(vmax/4)
-    vmax = step * 4
-    sx = lambda i: left + (right - left) * i / 30
-    sy = lambda v: bottom - (bottom - top) * v / vmax
-    parts = []
-    for k in range(5):
-        y = sy(step * k)
-        parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{right}" y2="{y:.1f}" stroke="{GRID}"/>')
-        parts.append(t(left - 10, y + 4, step * k, 11, MUTED, 400, "end"))
-    pts = " ".join(f"{sx(i):.1f},{sy(v):.1f}" for i, v in enumerate(vals))
-    area = f"{left},{bottom} {pts} {right},{bottom}"
-    parts.append(f'<polygon points="{area}" fill="{ACCENT}" fill-opacity="0.18"/>')
-    parts.append(f'<polyline points="{pts}" fill="none" stroke="{ACCENT}" stroke-width="2.5" '
-                 f'stroke-linejoin="round" stroke-linecap="round"/>')
-    for i, v in enumerate(vals):
-        parts.append(f'<circle cx="{sx(i):.1f}" cy="{sy(v):.1f}" r="3.5" fill="{BG}" '
-                     f'stroke="{ACCENT_LIGHT}" stroke-width="2"/>')
-        if i % 5 == 0 or i == 30:
-            parts.append(t(sx(i), bottom + 20, short_date(series[i], False), 11, MUTED, 400, "middle"))
-    parts.append(t(right, 37, f"{sum(vals)} contributions in the last 31 days", 12, MUTED, 400, "end"))
-    return card(w, h, "Contribution Activity", "\n".join(parts),
-                f"Line graph of daily contributions from {series[0]} to {series[-1]}, "
-                f"{sum(vals)} in total")
+    act = data["activity"]
+    repos = data["contributed_repos"]
+    parts = [t(965, 37, "Last 12 months", 12, MUTED, 400, "end"),
+             f'<line x1="500" y1="65" x2="500" y2="295" stroke="{BORDER}"/>']
 
+    # Left: repositories contributed to
+    parts.append(t(37, 92, "Contributed to", 15, TEXT, 600))
+    if repos:
+        for i, name in enumerate(repos[:3]):
+            label = name if len(name) <= 42 else name[:41] + "…"
+            parts.append(f'<circle cx="42" cy="{120 + i * 30}" r="3" fill="{ACCENT}"/>')
+            parts.append(t(54, 125 + i * 30, label, 14, ACCENT_LIGHT))
+        rest = len(repos) - 3
+        if rest > 0:
+            word = "repository" if rest == 1 else "repositories"
+            parts.append(t(37, 125 + 3 * 30 + 6, f"and {rest} other {word}", 14, MUTED))
+    else:
+        parts.append(t(37, 125, "No public repository contributions in this period.", 13, MUTED))
 
-def calendar_svg(data: dict) -> str:
-    weeks = data["calendar"][-53:]
-    counts = sorted(c for w in weeks for _, c in w if c > 0)
-
-    def level(c: int) -> int:
-        if c == 0 or not counts:
-            return 0
-        q = [counts[int(len(counts) * p) - 1] if int(len(counts) * p) else counts[0]
-             for p in (0.25, 0.5, 0.75)]
-        return 1 + sum(c > x for x in q)
-
-    cell, gap = 13.5, 3.5
-    left, top = 60, 78
-    w, h = 990, 250
-    parts = []
-    last_month = None
-    for wi, week in enumerate(weeks):
-        x = left + wi * (cell + gap)
-        for date, c in week:
-            wd = (dt.date.fromisoformat(date).weekday() + 1) % 7  # Sunday = 0
-            y = top + wd * (cell + gap)
-            parts.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{cell}" height="{cell}" rx="3" '
-                         f'fill="{HEAT[level(c)]}"><title>{c} on {date}</title></rect>')
-        month = dt.date.fromisoformat(week[0][0]).strftime("%b")
-        if month != last_month and wi < len(weeks) - 2:
-            parts.append(t(x, top - 10, month, 11, MUTED))
-            last_month = month
-    for wd, name in ((1, "Mon"), (3, "Wed"), (5, "Fri")):
-        parts.append(t(left - 10, top + wd * (cell + gap) + 11, name, 11, MUTED, 400, "end"))
-    right_edge = left + 53 * (cell + gap) - gap
-    lx = right_edge - 5 * (cell + gap) - 32
-    ly = top + 7 * (cell + gap) + 12
-    parts.append(t(lx - 8, ly + 11, "Less", 11, MUTED, 400, "end"))
-    for i, colour in enumerate(HEAT):
-        parts.append(f'<rect x="{lx + i * (cell + gap):.1f}" y="{ly}" width="{cell}" height="{cell}" '
-                     f'rx="3" fill="{colour}"/>')
-    parts.append(t(lx + 5 * (cell + gap) + 4, ly + 11, "More", 11, MUTED))
-    parts.append(t(left, ly + 11, f"{fmt(data['year_total'])} contributions in the last year",
-                   12, MUTED))
-    return card(w, h, "Contribution Calendar", "\n".join(parts),
-                f"Contribution heatmap: {data['year_total']} contributions in the last year")
+    # Right: four-axis chart, like GitHub's activity overview
+    total = sum(act.values())
+    pct = {k: (100 * v / total if total else 0) for k, v in act.items()}
+    cx, cy, r = 745, 175, 90
+    axes = {  # key: (dx, dy, label)
+        "reviews": (0, -1, "Code review"),
+        "issues": (1, 0, "Issues"),
+        "prs": (0, 1, "Pull requests"),
+        "commits": (-1, 0, "Commits"),
+    }
+    axis = "#2B3A5C"
+    parts.append(f'<line x1="{cx - r}" y1="{cy}" x2="{cx + r}" y2="{cy}" stroke="{axis}" stroke-width="3" stroke-linecap="round"/>')
+    parts.append(f'<line x1="{cx}" y1="{cy - r}" x2="{cx}" y2="{cy + r}" stroke="{axis}" stroke-width="3" stroke-linecap="round"/>')
+    pts = []
+    for key, (dx, dy, _) in axes.items():
+        d = max(r * pct[key] / 100, 4 if pct[key] else 0)
+        pts.append((cx + dx * d, cy + dy * d))
+    poly = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+    parts.append(f'<polygon points="{poly}" fill="{ACCENT}" fill-opacity="0.3" stroke="{ACCENT}" '
+                 f'stroke-width="4" stroke-linejoin="round"/>')
+    for (x, y), key in zip(pts, axes):
+        if pct[key]:
+            parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5" fill="{BG}" stroke="{ACCENT_LIGHT}" stroke-width="2.5"/>')
+    for key, (dx, dy, label) in axes.items():
+        value = f"{round(pct[key])}%" if pct[key] else ""
+        if dy == -1:
+            lines = [(cx, cy - r - 30, value), (cx, cy - r - 12, label)]
+            anchor = "middle"
+        elif dy == 1:
+            lines = [(cx, cy + r + 22, value), (cx, cy + r + 40 if value else cy + r + 22, label)]
+            anchor = "middle"
+        else:
+            x = cx + dx * (r + 16)
+            anchor = "start" if dx > 0 else "end"
+            lines = [(x, cy - 4, value), (x, cy + 14 if value else cy + 5, label)]
+        for x, y, text in lines:
+            if text:
+                is_pct = text.endswith("%")
+                parts.append(t(x, y, text, 13 if is_pct else 14,
+                               TEXT if is_pct else MUTED, 600 if is_pct else 400, anchor))
+    summary = ", ".join(f"{axes[k][2]} {round(pct[k])}%" for k in axes)
+    return card(w, h, "Activity Overview", "\n".join(parts),
+                f"Activity overview for the last 12 months: {summary}; contributed to "
+                f"{len(repos)} repositories")
 
 
 def placeholder_svg(width: int, height: int, title: str) -> str:
@@ -488,8 +516,7 @@ CARDS = {
     "overview.svg": (overview_svg, 495, 210, "GitHub Stats"),
     "languages.svg": (languages_svg, 495, 210, "Most Used Languages"),
     "streak.svg": (streak_svg, 990, 190, "Contribution Streak"),
-    "activity.svg": (activity_svg, 990, 320, "Contribution Activity"),
-    "calendar.svg": (calendar_svg, 990, 250, "Contribution Calendar"),
+    "activity-overview.svg": (activity_overview_svg, 990, 320, "Activity Overview"),
 }
 
 

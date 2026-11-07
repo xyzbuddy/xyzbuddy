@@ -67,11 +67,7 @@
 </p>
 
 <p align="center">
-  <img src="stats/activity.svg" width="100%" alt="Contribution activity graph for the last 31 days">
-</p>
-
-<p align="center">
-  <img src="stats/calendar.svg" width="100%" alt="Contribution calendar heatmap for the last year">
+  <img src="stats/activity-overview.svg" width="100%" alt="Activity overview: share of commits, issues, pull requests and code reviews over the last 12 months, and repositories contributed to">
 </p>
 
 <p align="center"><sub>Generated daily from the GitHub API by a GitHub Actions workflow in this repository.</sub></p>

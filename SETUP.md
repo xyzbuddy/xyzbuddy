@@ -45,7 +45,7 @@ With the built-in token the cards use **public** data only. To also count privat
 2. Create a token: **Settings → Developer settings → Personal access tokens → Tokens (classic)** with only the `read:user` scope and an expiry date you'll remember to renew.
 3. In the profile repo: **Settings → Secrets and variables → Actions → New repository secret**, name `STATS_TOKEN`, paste the token.
 
-Private contributions only add to the counts (calendar, streak, activity, commits). Stars, repositories and languages are always computed from your **public, non-fork** repositories.
+Private contributions only add to the counts (streak, activity overview, commits). Stars, repositories and languages are always computed from your **public, non-fork** repositories.
 
 ## How it works and limitations
 
