@@ -1,0 +1,41 @@
+name: Update GitHub stats
+
+on:
+  schedule:
+    - cron: "17 0 * * *" # once a day at 00:17 UTC
+  workflow_dispatch: # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write # needed only to commit the regenerated SVGs in stats/
+
+concurrency:
+  group: update-stats
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Generate stats cards
+        env:
+          # Optional STATS_TOKEN secret (fine-grained or classic PAT) adds private
+          # contribution counts; without it the built-in token reads public data.
+          GH_TOKEN: ${{ secrets.STATS_TOKEN || github.token }}
+          GH_USER: ${{ github.repository_owner }}
+        run: python3 scripts/generate_stats.py --out stats
+
+      - name: Commit changes (only if the cards changed)
+        run: |
+          if [ -z "$(git status --porcelain -- stats)" ]; then
+            echo "Stats unchanged; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats
+          git commit -m "chore: update GitHub stats cards"
+          git push

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Profile banner: Md Parvej, Undergraduate CSE Student and Software Developer">
+  <title>Md Parvej — Undergraduate CSE Student | Software Developer</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05070D"/>
+      <stop offset="1" stop-color="#0B1630"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#2563EB" stroke-opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="300" rx="16" fill="url(#bg)"/>
+  <rect width="1200" height="300" rx="16" fill="url(#grid)"/>
+  <rect x="0.5" y="0.5" width="1199" height="299" rx="16" fill="none" stroke="#1F2A44"/>
+
+  <!-- code-bracket motif -->
+  <g fill="none" stroke="#2563EB" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <path d="M1000 95 950 150l50 55"/>
+    <path d="M1070 95l50 55-50 55"/>
+  </g>
+  <path d="M1048 85 1022 215" stroke="#60A5FA" stroke-width="10" stroke-linecap="round"/>
+
+  <rect x="80" y="96" width="6" height="108" rx="3" fill="#2563EB"/>
+  <!-- EDIT the next two lines: your name and identity line -->
+  <text x="110" y="148" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="56" font-weight="700" fill="#E6EDF3">Md Parvej</text>
+  <text x="112" y="192" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#60A5FA">Undergraduate CSE Student | Software Developer</text>
+</svg>

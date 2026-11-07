@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="990" height="250" viewBox="0 0 990 250" role="img" aria-label="Contribution Calendar: not generated yet">
+<title>Contribution Calendar: not generated yet</title>
+<rect x="0.5" y="0.5" width="989" height="249" rx="10" fill="#0D1117" stroke="#1F2A44"/>
+<rect x="25" y="22" width="4" height="18" rx="2" fill="#2563EB"/>
+<text x="37" y="37" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="600" fill="#60A5FA">Contribution Calendar</text>
+<text x="495.0" y="133.0" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#E6EDF3" text-anchor="middle">Waiting for the first update</text>
+<text x="495.0" y="155.0" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="middle">Run the “Update GitHub stats” workflow in the Actions tab.</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" role="img" aria-label="SQL">
+  <title>SQL</title>
+  <rect width="256" height="256" rx="60" fill="#242938"/>
+  <g fill="none" stroke="#3B82F6" stroke-width="12">
+    <ellipse cx="128" cy="62" rx="62" ry="20"/>
+    <path d="M66 62v44c0 11 28 20 62 20s62-9 62-20V62"/>
+    <path d="M66 106v44c0 11 28 20 62 20s62-9 62-20v-44"/>
+  </g>
+  <text x="128" y="222" text-anchor="middle" font-family="'Segoe UI', Ubuntu, Arial, sans-serif" font-size="52" font-weight="700" fill="#E6EDF3">SQL</text>
+</svg>
