@@ -1,8 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="990" height="190" viewBox="0 0 990 190" role="img" aria-label="Contribution Streak: not generated yet">
-<title>Contribution Streak: not generated yet</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="990" height="190" viewBox="0 0 990 190" role="img" aria-label="Total contributions 93, current streak 0 days, longest streak 3 days">
+<title>Total contributions 93, current streak 0 days, longest streak 3 days</title>
 <rect x="0.5" y="0.5" width="989" height="189" rx="10" fill="#0D1117" stroke="#1F2A44"/>
 <rect x="25" y="22" width="4" height="18" rx="2" fill="#2563EB"/>
 <text x="37" y="37" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="600" fill="#60A5FA">Contribution Streak</text>
-<text x="495.0" y="103.0" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#E6EDF3" text-anchor="middle">Waiting for the first update</text>
-<text x="495.0" y="125.0" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="middle">Run the “Update GitHub stats” workflow in the Actions tab.</text>
+<line x1="330" y1="65" x2="330" y2="165" stroke="#1F2A44"/>
+<line x1="660" y1="65" x2="660" y2="165" stroke="#1F2A44"/>
+<text x="165" y="110" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#E6EDF3" text-anchor="middle">93</text>
+<text x="165" y="138" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#60A5FA" text-anchor="middle">Total Contributions</text>
+<text x="165" y="160" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="middle">Feb 28, 2021 – Present</text>
+<circle cx="495" cy="102" r="34" fill="none" stroke="#2563EB" stroke-width="5"/>
+<text x="495" y="112" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="700" fill="#E6EDF3" text-anchor="middle">0</text>
+<text x="495" y="156" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#60A5FA" text-anchor="middle">Current Streak</text>
+<text x="495" y="175" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="middle">Start a streak today</text>
+<text x="825" y="110" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#E6EDF3" text-anchor="middle">3</text>
+<text x="825" y="138" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#60A5FA" text-anchor="middle">Longest Streak</text>
+<text x="825" y="160" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#8B949E" text-anchor="middle">Oct 1, 2025 – Oct 3, 2025</text>
 </svg>
