@@ -4,10 +4,6 @@
   HTML comments: fill in the ALL_CAPS placeholder and remove the comment markers to show them.
 -->
 
-<p align="center">
-  <img src="assets/banner.svg" alt="Banner: Md Parvej, Undergraduate CSE Student and Software Developer" width="100%">
-</p>
-
 <h2 align="center">Hi, I'm Md Parvej</h2>
 
 <p align="center">
