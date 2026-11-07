@@ -39,12 +39,6 @@
   <img src="assets/sql.svg" width="48" height="48" alt="SQL">
 </p>
 
-## Frameworks & Libraries
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=react,nextjs,nodejs,express,tailwind,bootstrap,laravel,django,vue&theme=dark" alt="React.js, Next.js, Node.js, Express.js, Tailwind CSS, Bootstrap, Laravel, Django, Vue.js">
-</p>
-
 ## Tools & IDEs
 
 <p align="center">
@@ -53,12 +47,10 @@
   <img src="https://skillicons.dev/icons?i=git,github,docker,postman,figma&theme=dark" alt="Git, GitHub, Docker, Postman, Figma">
 </p>
 
-## Databases & Cloud
+## Frameworks & Libraries
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=mysql,postgres,mongodb,firebase,redis,sqlite&theme=dark" alt="MySQL, PostgreSQL, MongoDB, Firebase, Redis, SQLite">
-  <br>
-  <img src="https://skillicons.dev/icons?i=supabase,aws,gcp,azure,vercel,netlify&theme=dark" alt="Supabase, AWS, Google Cloud, Microsoft Azure, Vercel, Netlify">
+  <img src="https://skillicons.dev/icons?i=react,nextjs,nodejs,express,tailwind,bootstrap,laravel,django,vue&theme=dark" alt="React.js, Next.js, Node.js, Express.js, Tailwind CSS, Bootstrap, Laravel, Django, Vue.js">
 </p>
 
 ---
