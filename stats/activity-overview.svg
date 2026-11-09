@@ -15,9 +15,9 @@
 <text x="37" y="221" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="start">and 2 other repositories</text>
 <line x1="655" y1="175" x2="835" y2="175" stroke="#2EA043" stroke-width="3" stroke-linecap="round"/>
 <line x1="745" y1="85" x2="745" y2="265" stroke="#2EA043" stroke-width="3" stroke-linecap="round"/>
-<polygon points="745.0,175.0 749.0,175.0 745.0,175.0 656.6,175.0" fill="#2EA043" fill-opacity="0.3" stroke="#2EA043" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="745.0,175.0 749.0,175.0 745.0,175.0 656.5,175.0" fill="#2EA043" fill-opacity="0.3" stroke="#2EA043" stroke-width="4" stroke-linejoin="round"/>
 <circle cx="749.0" cy="175.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
-<circle cx="656.6" cy="175.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
+<circle cx="656.5" cy="175.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
 <text x="745" y="73" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="middle">Code review</text>
 <text x="851" y="171" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="start">2%</text>
 <text x="851" y="189" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="start">Issues</text>
