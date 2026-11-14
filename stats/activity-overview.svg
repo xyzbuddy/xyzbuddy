@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="990" height="320" viewBox="0 0 990 320" role="img" aria-label="Activity overview for the last 12 months: Code review 0%, Issues 2%, Pull requests 2%, Commits 97%; contributed to 5 repositories">
-<title>Activity overview for the last 12 months: Code review 0%, Issues 2%, Pull requests 2%, Commits 97%; contributed to 5 repositories</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="990" height="320" viewBox="0 0 990 320" role="img" aria-label="Activity overview for the last 12 months: Code review 0%, Issues 1%, Pull requests 1%, Commits 97%; contributed to 6 repositories">
+<title>Activity overview for the last 12 months: Code review 0%, Issues 1%, Pull requests 1%, Commits 97%; contributed to 6 repositories</title>
 <rect x="0.5" y="0.5" width="989" height="319" rx="10" fill="#0D1117" stroke="#30363D"/>
 <rect x="25" y="22" width="4" height="18" rx="2" fill="#2EA043"/>
 <text x="37" y="37" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="600" fill="#E6EDF3">Activity Overview</text>
@@ -12,17 +12,17 @@
 <text x="54" y="155" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#58A6FF" text-anchor="start">jahidhasan75/Abandoned-Not-Forgotten</text>
 <circle cx="42" cy="180" r="3" fill="#2EA043"/>
 <text x="54" y="185" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#58A6FF" text-anchor="start">xyzbuddy/Telegram-Private-File-Downloader</text>
-<text x="37" y="221" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="start">and 2 other repositories</text>
+<text x="37" y="221" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="start">and 3 other repositories</text>
 <line x1="655" y1="175" x2="835" y2="175" stroke="#2EA043" stroke-width="3" stroke-linecap="round"/>
 <line x1="745" y1="85" x2="745" y2="265" stroke="#2EA043" stroke-width="3" stroke-linecap="round"/>
-<polygon points="745.0,175.0 749.0,175.0 745.0,179.0 657.8,175.0" fill="#2EA043" fill-opacity="0.3" stroke="#2EA043" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="745.0,175.0 749.0,175.0 745.0,179.0 657.6,175.0" fill="#2EA043" fill-opacity="0.3" stroke="#2EA043" stroke-width="4" stroke-linejoin="round"/>
 <circle cx="749.0" cy="175.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
 <circle cx="745.0" cy="179.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
-<circle cx="657.8" cy="175.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
+<circle cx="657.6" cy="175.0" r="5" fill="#0D1117" stroke="#58A6FF" stroke-width="2.5"/>
 <text x="745" y="73" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="middle">Code review</text>
-<text x="851" y="171" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="start">2%</text>
+<text x="851" y="171" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="start">1%</text>
 <text x="851" y="189" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="start">Issues</text>
-<text x="745" y="287" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="middle">2%</text>
+<text x="745" y="287" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="middle">1%</text>
 <text x="745" y="305" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="middle">Pull requests</text>
 <text x="639" y="171" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#E6EDF3" text-anchor="end">97%</text>
 <text x="639" y="189" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#8B949E" text-anchor="end">Commits</text>
